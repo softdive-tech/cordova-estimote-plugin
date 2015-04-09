@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         id="com.softdive.madpiggy.estimote"
-        <name>Estimote</name>
         version="1.0.0">
 
   <name>Cordova Estimote Plugin</name>
