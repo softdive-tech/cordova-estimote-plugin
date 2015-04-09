@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         id="com.softdive.madpiggy.estimote"
+        <name>Estimote</name>
         version="1.0.0">
 
   <name>Cordova Estimote Plugin</name>
@@ -15,6 +16,16 @@
     <clobbers target="estimote" />
   </js-module>
 
+<platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="Device">
+                <param name="ios-package" value="CDVDevice"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/CDVDevice.h" />
+        <source-file src="src/ios/CDVDevice.m" />
+    </platform>
 
   <platform name="ios">
     <info>
