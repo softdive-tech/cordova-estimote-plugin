@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.softdive.madpiggy.estimote"
+        version="1.0.0">
+
+  <name>Cordova Estimote Plugin</name>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <asset src="www/estimote-plugin.js" target="js/estimote-plugin.js"/>
+
+  <js-module src="www/estimote-plugin.js" name="estimote">
+    <clobbers target="estimote" />
+  </js-module>
+
+
+  <platform name="ios">
+    <info>
+		open xcode go into settings change `deployment target` to 7.0 or above and add `[Project Name]/Plugins/com.example.hello/Bridging-Header.h` to Objective-c Bridging Header under the Swift Compiler - Code Generation options      
+    </info>
+    <config-file target="config.xml" parent="/*">
+      <feature name="Estimote">
+        <param name="ios-package" value="HWPEstimote"/>
+      </feature>
+    </config-file>
+    
+    <header-file src="src/ios/Estimote-Bridging-Header.h" />
+    <source-file src="src/ios/Estimote.swift"/>
+  </platform>
+</plugin>
