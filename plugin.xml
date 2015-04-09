@@ -15,17 +15,6 @@
     <clobbers target="estimote" />
   </js-module>
 
-<platform name="ios">
-        <config-file target="config.xml" parent="/*">
-            <feature name="Device">
-                <param name="ios-package" value="CDVDevice"/>
-            </feature>
-        </config-file>
-
-        <header-file src="src/ios/CDVDevice.h" />
-        <source-file src="src/ios/CDVDevice.m" />
-    </platform>
-
   <platform name="ios">
     <info>
 		open xcode go into settings change `deployment target` to 7.0 or above and add `[Project Name]/Plugins/com.example.hello/Bridging-Header.h` to Objective-c Bridging Header under the Swift Compiler - Code Generation options      
