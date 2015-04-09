@@ -2,10 +2,10 @@
 
 var exec = require("cordova/exec");
 
-var Discover = function(){};
+var Estimote = function(){};
 
-Discover.prototype.greet = function (name, successCallback, errorCallback) {
-    cordova.exec(successCallback, errorCallback, "Discover", "greet", [name]);
+Estimote.prototype.greet = function (name, successCallback, errorCallback) {
+    cordova.exec(successCallback, errorCallback, "Estimote", "greet", [name]);
 };
 
-module.exports = new Discover();
+module.exports = new Estimote();
