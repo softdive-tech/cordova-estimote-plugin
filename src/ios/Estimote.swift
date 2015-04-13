@@ -6,6 +6,7 @@ import CoreLocation
  @objc(HWPEstimote) class Estimote : CDVPlugin, CLLocationManagerDelegate {
     
     var locationManager: CLLocationManager?
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     func greet(command: CDVInvokedUrlCommand) {
         var message = command.arguments[0]
@@ -75,4 +76,28 @@ extension Estimote: CLLocationManagerDelegate {
             NSLog("%@", message)
             //sendLocalNotificationWithMessage(message)
     }
+    func writeData(outletId: String){
+        
+        if let name = defaults.stringForKey("outlets")
+        {
+            var appendString1 = "\(name),\(outletId)"
+            defaults.setObject(appendString1, forKey: "outlets")
+            
+        }
+        else{
+            defaults.setObject(outletId, forKey: "outlets")
+        }
+    }
+    func readData(command: CDVInvokedUrlCommand) {
+        NSLog("%@", "reached")
+        var message: AnyObject = command.arguments[0]
+        var pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAsString: "Estimote \(message)")
+        commandDelegate.sendPluginResult(pluginResult, callbackId:command.callbackId)
+        NSLog("%@", defaults.stringForKey("outlets")!)
+    }
+    
+    func removeData(){
+        defaults.removeObjectForKey("outlets")
+    }
+    
 }
